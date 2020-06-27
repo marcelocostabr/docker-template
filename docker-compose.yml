@@ -11,13 +11,13 @@ services:
     ports:
       - 8011:3306
     volumes:
-      - ./data/db:/var/lib/mysql
+      - ./.docker/db:/var/lib/mysql
 
   app:
     image: mcostabr/webserver:1.1
     volumes:
       - ./:/var/www/html
-      - ./data/conf/apache2.conf:/etc/apache2/apache2.conf
+      - ./.docker/apache/apache2.conf:/etc/apache2/apache2.conf
     ports:
       - 8010:80
     links:
